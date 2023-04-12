@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 50px;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        .form-label {
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 5px;
+        }
+
+        .btn-submit {
+            background-color: #3c6e71;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        .result {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-center mb-4">Mortgage Calculator</h1>
+    <form action="/" method="POST">
+        <div class="form-group">
+            <label class="form-label" for="principal">Principal:</label>
+            <input class="form-input" type="number" step="0.01" id="principal" name="principal" required>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" for="annual_interest">Annual Interest Rate:</label>
+            <input class="form-input" type="number" step="0.01" id="annual_interest" name="annual_interest" required>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" for="years">Period (Years):</label>
+            <input class="form-input" type="number" id="years" name="years" required>
+        </div>
+
+        <button class="btn-submit" type="submit">Calculate Monthly Payment</button>
+    </form>
+
+    {% if monthly_payment %}
+    <div class="result">
+        Monthly Payment: ${{ "%.2f"|format(monthly_payment) }}
+    </div>
+    {% endif %}
+</body>
+</html>
