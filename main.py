@@ -3,8 +3,6 @@ import math
 
 app = Flask(__name__)
 
-server = app.server
-
 def calculate_monthly_payment(principal, annual_interest, years):
     monthly_interest = annual_interest / 100 / 12
     number_of_payments = years * 12
